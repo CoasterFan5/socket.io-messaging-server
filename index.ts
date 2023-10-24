@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
     })
 
     socket.on("setName", (args) => {
-        socketMap[socket.id] = args;
+        socketMap[socket.id].name = args;
     })
 
     socket.on("message", (args) => {
