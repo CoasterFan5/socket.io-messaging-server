@@ -60,11 +60,11 @@ socket.on("message", (message) -> {
 Message Items
 ```JSON
 {
-    author: "author string",
-    message: "Message Content", 
-    server: {
-        online: 0 //online user count
-        userList: [] //array of user name strings
+    "author": "author string",
+    "message": "Message Content", 
+    "server": {
+        "online": 0 //online user count
+        "userList": [] //array of user name strings
     }
 }
 ```
