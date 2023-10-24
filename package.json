@@ -1,0 +1,17 @@
+{
+  "name": "socket.io-messaging-server",
+  "version": "1.0.0",
+  "description": "a simple no security socket server made for dst",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "socket.io": "^4.7.2",
+    "tsx": "^3.14.0"
+  }
+}
