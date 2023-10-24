@@ -10,7 +10,7 @@ Use socket.io to connect to the hosted version of the server, for example:
 ```ts
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
+const socket = io("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
 
 ```
 
@@ -19,7 +19,7 @@ You can emit a setName event to set the name of your client
 ```ts
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
+const socket = io("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
 
 socket.on("connect", () => {
     socket.emit("setName", "Joe");
@@ -32,7 +32,7 @@ You can also send messages, which will use the name you have set before, and if 
 ```ts
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
+const socket = io("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
 
 socket.on("connect", () => {
     socket.emit("setName", "Joe");
@@ -45,7 +45,7 @@ Finally, all clients will be sent incoming messages which include message detail
 ```ts
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
+const socket = io("https://sockets.hosted.coasterfan5.com", { transports: ["websocket"] })
 
 socket.on("connect", () => {
     socket.emit("setName", "Joe");
