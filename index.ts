@@ -10,7 +10,7 @@ type SocketMap = {
 
 const io = new Server();
 
-io.listen(parseInt(process.env.PORT ?? "25565"));
+
 let connectedusers: number = 0;
 let socketMap: SocketMap = {}
 
@@ -36,3 +36,7 @@ io.on("connection", (socket) => {
         connectedusers--;
     })
 })
+
+let port = parseInt(process.env.PORT ?? "25565")
+io.listen(port);
+console.log(`listening on port ${port}`)
