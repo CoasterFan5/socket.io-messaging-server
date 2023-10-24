@@ -8,7 +8,12 @@ type SocketMap = {
     }
 }
 
-const io = new Server();
+const io = new Server({
+    cors: {
+        origin: ["*"]
+    },
+    transports: ["websocket"]
+});
 
 
 let connectedusers: number = 0;
@@ -51,6 +56,15 @@ io.on("connection", (socket) => {
         connectedusers--;
     })
 })
+
+type message = {
+    author: string,
+    content: string,
+    server: {
+        online: number,
+        userList: String[]
+    }
+}
 
 let port: number = parseInt(process.env.PORT ?? "25565")
 io.listen(port);
