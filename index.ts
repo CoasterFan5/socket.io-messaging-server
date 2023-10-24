@@ -25,6 +25,7 @@ let getUserList = () => {
     for(const item in socketMap ) {
         userList.push(socketMap[item].name ?? "Anonymous User")
     }
+    return userList;
     
 }
 
@@ -43,7 +44,7 @@ io.on("connection", (socket) => {
     socket.on("message", (args) => {
         io.emit("message", {
             message: args,
-            author: socketMap[socket.id].name,
+            author: socketMap[socket.id].name ?? "Anonymous User",
             server: {
                 online: connectedusers,
                 userList: getUserList()
