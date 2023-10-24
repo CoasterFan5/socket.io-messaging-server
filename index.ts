@@ -28,7 +28,8 @@ io.on("connection", (socket) => {
 
     socket.on("message", (args) => {
         io.emit("message", {
-            message: args
+            message: args,
+            author: socketMap[socket.id].name
         })
     })
 
