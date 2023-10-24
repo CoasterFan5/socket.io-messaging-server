@@ -37,6 +37,6 @@ io.on("connection", (socket) => {
     })
 })
 
-let port = parseInt(process.env.PORT ?? "25565")
+let port: number = parseInt(process.env.PORT ?? "25565")
 io.listen(port);
 console.log(`listening on port ${port}`)
