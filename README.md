@@ -20,7 +20,11 @@ You can emit a setName event to set the name of your client
 import { io } from "socket.io-client";
 
 const socket = io.connect("https://sockets.hosted.coasterfan5.com")
-socket.emit("setName", "Joe");
+
+socket.on("connect", () => {
+    socket.emit("setName", "Joe");
+})
+
 ```
 
 ## You can also send messages, which will use the name you have set
@@ -28,21 +32,41 @@ socket.emit("setName", "Joe");
 import { io } from "socket.io-client";
 
 const socket = io.connect("https://sockets.hosted.coasterfan5.com")
-socket.emit("setName", "Joe");
-socket.emit("message", "Hello World")
+
+socket.on("connect", () => {
+    socket.emit("setName", "Joe");
+    socket.emit("message", "Hello World")
+})
 ```
 
-## Finally, all clients will be sent incoming messages
+## Incoming Messages
+Finally, all clients will be sent incoming messages which include message details, and server details
 ```ts
 import { io } from "socket.io-client";
 
 const socket = io.connect("https://sockets.hosted.coasterfan5.com")
-socket.emit("setName", "Joe");
-socket.emit("message", "Hello World")
+
+socket.on("connect", () => {
+    socket.emit("setName", "Joe");
+    socket.emit("message", "Hello World")
+});
+
 socket.on("message", (message) -> {
     console.log(`Author: ${message.author}`)
     console.log(`Message: ${message.message}`)
 });
+```
+
+Message Items
+```JSON
+{
+    author: "author string",
+    message: "Message Content", 
+    server: {
+        online: 0 //online user count
+        userList: [] //array of user name strings
+    }
+}
 ```
 
 
