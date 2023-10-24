@@ -10,9 +10,8 @@ type SocketMap = {
 
 const io = new Server({
     cors: {
-        origin: ["*"]
-    },
-    transports: ["websocket"]
+        "origin": "*"
+    }
 });
 
 
