@@ -28,7 +28,7 @@ socket.on("connect", () => {
 ```
 
 ## Send Messages
-You can also send messages, which will use the name you have set before, and if you did not set a name, it will use 
+You can also send messages, which will use the name you have set before, and if you did not set a name, it will use Anonymous User 
 ```ts
 import { io } from "socket.io-client";
 
